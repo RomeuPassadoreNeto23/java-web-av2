@@ -1,0 +1,53 @@
+
+body{
+    width: 399px;
+    margin: auto;
+    padding-top : 100px;
+    padding-right: 1590px;
+    background-image: linear-gradient(to right,rgb(169, 179, 41),blue);
+}
+
+.h1{
+    background-image: linear-gradient(to right,rgb(169, 179, 37),blue);
+    color: antiquewhite;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
+    text-align: center;
+}
+.tbClientes{
+    color: rgb(0, 0, 0);
+    width: 2000px;
+}
+th{
+    background-color: azure;
+}
+.id{
+
+}
+.Nome{
+    
+}
+.Sobrenome{
+    
+}
+.Endereco{
+    
+}
+.Contato{
+    
+}
+.Email{
+    width: 200px;  
+}
+.PdInteresse{
+    
+}
+.Genero{
+    width: 90px;
+}
+.FaixaEtaria{
+    
+}
+td{
+    color: beige;
+    background-color: rgba(0, 0, 0, 0.082);
+}
