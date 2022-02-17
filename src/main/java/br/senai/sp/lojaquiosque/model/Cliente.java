@@ -8,8 +8,15 @@ public class Cliente {
 	public void setId(Long id) {
 		this.id = id;
 	}
+	private FaixaEtaria faixaEtaria;
+	public FaixaEtaria getFaixaEtaria() {
+		return faixaEtaria;
+	}
+	public void setFaixaEtaria(FaixaEtaria faixaEtaria) {
+		this.faixaEtaria = faixaEtaria;
+	}
 	private String nome;
-	private String telefoOuCelular;
+	private int telefoOuCelular;
 	private String endereco;
 	private int idade;
 	private Genero genero;
@@ -41,10 +48,10 @@ public class Cliente {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public String getTelefoOuCelular() {
+	public int getTelefoOuCelular() {
 		return telefoOuCelular;
 	}
-	public void setTelefoOuCelular(String telefoOuCelular) {
+	public void setTelefoOuCelular(int telefoOuCelular) {
 		this.telefoOuCelular = telefoOuCelular;
 	}
 	public String getEndereco() {

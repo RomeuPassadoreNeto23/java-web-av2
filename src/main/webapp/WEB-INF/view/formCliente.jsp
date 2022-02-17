@@ -5,9 +5,68 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<link rel="stylesheet" type="text/css" href="Css/cadastro.css">
-<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="cadastro.css">
+<title>Cadastro</title>
 </head>
+<style>
+*
+body{
+    width: 399px;
+    margin: auto;
+    padding-top : 100px;
+    background-image: linear-gradient(to right,rgb(255, 217, 0),blue);
+}
+.login{
+    width: 400px;
+    padding-left: 20px;
+    height: 600px;
+    border: none;
+    background-color: rgb(163, 148, 148);
+   
+}
+.h1{
+    color: aliceblue;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
+}
+label{
+    color: aliceblue;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 1em;
+}
+.labNome{
+    padding-right: 157px;
+}
+.labSnome{
+    padding-right: 115px;
+
+}
+.labEndereco{
+    padding-right: 131px;
+
+}
+.labContato{
+    padding-right: 54px;
+
+}
+.labEmail{
+    padding-right: 125px;
+    width: 1000px;
+
+}
+.labProduto{
+    padding-right: 44px;
+
+}
+.InEmail{
+    width: 200px;
+    
+}
+.btCadastrar{
+    border: none;
+    background-color: antiquewhite;
+    padding: 10px;
+}
+</style>
 <body>
 <form action="salvarClinete" method="post">
         <fieldset class="login">
@@ -17,8 +76,8 @@
             <input type="text" name="nome" value="Digite seu nome">
             
         
-            <label for="">Idade:</label>
-            <input type="number" name="idade" class="inIdade">
+            <label for="">Faixa etária:</label>
+            <input type="numbe" name="idade" class="inIdade">
             <br>
             <label for="endereco" class="labEndereco">Endereço:</label>
             <input type="text" name="endereco" value="Digite seu endereço">
@@ -39,10 +98,19 @@
             </select>
             <br>
             <label for="">Gênero:</label>
-            <select name="genero"  class="">
+            <select name="genero"  class="gen_produtos">
                 <option value="gen_selecione">Selecione</option>
                 <option value="gen_MA">Masculino</option>
                 <option value="gen_FE">Feminino</option>
+
+            </select>
+            <br>
+            <label for="">Faixa etária:</label>
+             <select name="Fetaria"  class="ft_etaria">
+                <option value="ft_selecione">Selecione</option>
+                <option value="ft_jovem">Jovem</option>
+                <option value="ft_adulto">Adulto</option>
+                <option value="ft_Idoso">Idoso</option>
 
             </select>
             <br>
