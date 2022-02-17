@@ -6,28 +6,29 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.senai.sp.lojaquiosque.dao.DaoCliente;
 import br.senai.sp.lojaquiosque.model.Cliente;
+import br.senai.sp.lojaquiosque.model.FaixaEtaria;
 import br.senai.sp.lojaquiosque.model.Genero;
 import br.senai.sp.lojaquiosque.model.TipoProduto;
 
 @Controller
 public class ClienteController {
 	
-	public String form(Model model) {
-		model.addAttribute("tipos",TipoProduto.values());
-		return "formCliente";
-		
-	}
+	
 	@RequestMapping("formCliente")
 	public String formGenero(Model model) {
 		model.addAttribute("genero",Genero.values());
+		model.addAttribute("tipos",TipoProduto.values());
+		model.addAttribute("faixa",FaixaEtaria.values());
+		
 		return "formCliente";
 		
 	}
 	
 	@RequestMapping("listacliente")
 	public String Listarcliente(Model model) {
-		DaoCliente = new DaoCliente();
-		model.addAttribute("produtos",dao.listar());
+		DaoCliente dao = new DaoCliente();
+		model.addAttribute("Cliente",dao.listar());
+		
 		return "listacliente";
 	}
 	
@@ -39,7 +40,8 @@ public class ClienteController {
 		System.out.println(cliente.getTelefoOuCelular());
 		System.out.println(cliente.getTipoproduto());
 		System.out.println(cliente.getGenero());
-		
+		DaoCliente dao = new DaoCliente();
+		dao.inserir(cliente);
 		
 		return "redirect:listacliente" ;
 		

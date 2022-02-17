@@ -11,7 +11,7 @@ public class ConnectionFactory {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection conexao =
-					DriverManager.getConnection("jdbc:mysql://localhost/databese_quiosque",USUARIO,SENHA);
+					DriverManager.getConnection("jdbc:mysql://localhost/quiosque",USUARIO,SENHA);
 			return conexao;
 		} catch (Exception e) {
 			throw new RuntimeException(e);

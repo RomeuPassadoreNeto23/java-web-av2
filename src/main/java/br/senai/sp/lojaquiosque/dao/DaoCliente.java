@@ -19,7 +19,7 @@ public class DaoCliente {
 
 	}
 	public void inserir(Cliente cliente) {
-		String sql = "insert into tb_produto(nome,email,contato,tprodutos,genero,faixa_etaria)  values (?,?,?,?,?,?,?)";
+		String sql = "insert into cliente(nome,email,contato,tprodutos,genero,faixa_etaria)  values (?,?,?,?,?,?)";
 		PreparedStatement stmt;
 		try {
 			stmt = conexao.prepareStatement(sql);
@@ -63,9 +63,9 @@ public class DaoCliente {
 				int posEnum = rs.getInt("tipo_produto");
 				
 				// descobre a enumeração através da posição
-				TipoProduto tipo = TipoProduto.values()[posEnum];
+				TipoProduto tipos = TipoProduto.values()[posEnum];
 				// "setar" o tipo no produto
-				c.setTipoproduto(tipo);
+				c.setTipoproduto(tipos);
 				int posEnumG = rs.getInt("genero");
 				Genero gen = Genero.values()[posEnumG];
 				c.setGenero(gen);
