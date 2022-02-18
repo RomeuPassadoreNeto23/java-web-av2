@@ -9,6 +9,7 @@ import java.util.List;
 import br.senai.sp.lojaquiosque.model.Cliente;
 import br.senai.sp.lojaquiosque.model.FaixaEtaria;
 import br.senai.sp.lojaquiosque.model.Genero;
+import br.senai.sp.lojaquiosque.model.TelefoneOuCelular;
 import br.senai.sp.lojaquiosque.model.TipoProduto;
 
 public class DaoCliente {
@@ -19,16 +20,18 @@ public class DaoCliente {
 
 	}
 	public void inserir(Cliente cliente) {
-		String sql = "insert into cliente(nome,email,contato,tprodutos,genero,faixa_etaria)  values (?,?,?,?,?,?)";
+		String sql = "insert into cliente(nome,endereco,contato,tptelefone,tprodutos,genero,faixa_etaria)  values (?,?,?,?,?,?,?,?)";
 		PreparedStatement stmt;
 		try {
 			stmt = conexao.prepareStatement(sql);
 			stmt.setString(1, cliente.getNome());
-			 stmt.setString(2, cliente.getEmail());
-			stmt.setInt(3, cliente.getTelefoOuCelular());
-			stmt.setInt(4,cliente.getTipoproduto().ordinal());
-			stmt.setInt(5, cliente.getGenero().ordinal());
-			stmt.setInt(6, cliente.getFaixaEtaria().ordinal());
+			stmt.setString(2, cliente.getEndereco());
+			stmt.setInt(3, cliente.getTelefone());
+			stmt.setInt(4, cliente.getTelefoneoucelular().ordinal());
+			stmt.setString(5,cliente.getEmail());
+			stmt.setInt(6,cliente.getTipoproduto().ordinal());
+			stmt.setInt(7, cliente.getGenero().ordinal());
+			stmt.setInt(8, cliente.getFaixaEtaria().ordinal());
 			stmt.execute();
 			stmt.close();
 			conexao.close();
@@ -50,7 +53,7 @@ public class DaoCliente {
 				c.setId(rs.getLong("id"));
 				c.setNome(rs.getString("nome"));
 				c.setEmail(rs.getString("email"));
-				c.setTelefoOuCelular(rs.getInt("contato"));
+				c.setTelefone(rs.getInt("contato"));
 				// cria um Calendar
 				//Calendar validade = Calendar.getInstance();
 				// extrair o Date do resultset
@@ -60,6 +63,10 @@ public class DaoCliente {
 				// "setar" a validade no produto
 			//	p.setDataValidade(validade);
 				// extrair a posição da enumeração do resultset
+				int posEnumn = rs.getInt("tptelefone");
+				TelefoneOuCelular tele = TelefoneOuCelular.values()[posEnumn];
+				c.setTelefoneoucelular(tele);
+				
 				int posEnum = rs.getInt("tipo_produto");
 				
 				// descobre a enumeração através da posição
@@ -72,6 +79,7 @@ public class DaoCliente {
 				int posEnumf = rs.getInt("faixa_etaria");
 				FaixaEtaria faix = FaixaEtaria.values()[posEnumf];
 				c.setFaixetaria(faix);
+				
 				
 				lista.add(c);
 			}

@@ -1,6 +1,13 @@
 package br.senai.sp.lojaquiosque.model;
 
 public class Cliente {
+	private TelefoneOuCelular telefoneoucelular;
+	public TelefoneOuCelular getTelefoneoucelular() {
+		return telefoneoucelular;
+	}
+	public void setTelefoneoucelular(TelefoneOuCelular telefoneoucelular) {
+		this.telefoneoucelular = telefoneoucelular;
+	}
 	private Long id;
 	public Long getId() {
 		return id;
@@ -16,7 +23,7 @@ public class Cliente {
 		this.faixaEtaria = faixaEtaria;
 	}
 	private String nome;
-	private int telefoOuCelular;
+	private int telefone;
 	private String endereco;
 	private int idade;
 	private Genero genero;
@@ -48,11 +55,11 @@ public class Cliente {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public int getTelefoOuCelular() {
-		return telefoOuCelular;
+	public int getTelefone() {
+		return telefone;
 	}
-	public void setTelefoOuCelular(int telefoOuCelular) {
-		this.telefoOuCelular = telefoOuCelular;
+	public void setTelefone(int telefone) {
+		this.telefone = telefone;
 	}
 	public String getEndereco() {
 		return endereco;

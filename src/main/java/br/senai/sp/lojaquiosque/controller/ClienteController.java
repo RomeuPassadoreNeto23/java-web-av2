@@ -8,6 +8,7 @@ import br.senai.sp.lojaquiosque.dao.DaoCliente;
 import br.senai.sp.lojaquiosque.model.Cliente;
 import br.senai.sp.lojaquiosque.model.FaixaEtaria;
 import br.senai.sp.lojaquiosque.model.Genero;
+import br.senai.sp.lojaquiosque.model.TelefoneOuCelular;
 import br.senai.sp.lojaquiosque.model.TipoProduto;
 
 @Controller
@@ -19,6 +20,7 @@ public class ClienteController {
 		model.addAttribute("genero",Genero.values());
 		model.addAttribute("tipos",TipoProduto.values());
 		model.addAttribute("faixa",FaixaEtaria.values());
+		model.addAttribute("tptelefone",TelefoneOuCelular.values());
 		
 		return "formCliente";
 		
@@ -35,9 +37,10 @@ public class ClienteController {
 	@RequestMapping("salvarClinete")
 	public String salvarCliente(Cliente cliente) {
 		System.out.println(cliente.getNome());
-		System.out.println(cliente.getIdade());
 		System.out.println(cliente.getEndereco());
-		System.out.println(cliente.getTelefoOuCelular());
+		System.out.println(cliente.getTelefone());
+		System.out.println(cliente.getTelefoneoucelular());
+		System.out.println(cliente.getEmail());
 		System.out.println(cliente.getTipoproduto());
 		System.out.println(cliente.getGenero());
 		DaoCliente dao = new DaoCliente();
