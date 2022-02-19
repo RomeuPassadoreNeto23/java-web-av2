@@ -16,22 +16,28 @@ public class Cliente {
 		this.id = id;
 	}
 	private FaixaEtaria faixaEtaria;
+
+	
 	public FaixaEtaria getFaixaEtaria() {
 		return faixaEtaria;
 	}
 	public void setFaixaEtaria(FaixaEtaria faixaEtaria) {
 		this.faixaEtaria = faixaEtaria;
 	}
+	
 	private String nome;
 	private int telefone;
 	private String endereco;
 	private int idade;
-	private Genero genero;
-	public Genero getGenero() {
-		return genero;
+	private Genero generox;
+	
+	
+	
+	public Genero getGenerox() {
+		return generox;
 	}
-	public void setGenero(Genero genero) {
-		this.genero = genero;
+	public void setGenerox(Genero generox) {
+		this.generox = generox;
 	}
 	public int getIdade() {
 		return idade;

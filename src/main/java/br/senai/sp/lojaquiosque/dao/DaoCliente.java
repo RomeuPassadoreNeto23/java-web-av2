@@ -20,20 +20,20 @@ public class DaoCliente {
 
 	}
 	public void inserir(Cliente cliente) {
-		String sql = "insert into cliente(nome,endereco,contato,tptelefone,tprodutos,genero,faixa_etaria)  values (?,?,?,?,?,?,?,?)";
-		PreparedStatement stmt;
+		String sql = "insert into tb_cliente(nome,endereco,contato,tptelefone,email,tprodutos,sex,faixa_etaria)  values (?,?,?,?,?,?,?,?)";
+		PreparedStatement sl;
 		try {
-			stmt = conexao.prepareStatement(sql);
-			stmt.setString(1, cliente.getNome());
-			stmt.setString(2, cliente.getEndereco());
-			stmt.setInt(3, cliente.getTelefone());
-			stmt.setInt(4, cliente.getTelefoneoucelular().ordinal());
-			stmt.setString(5,cliente.getEmail());
-			stmt.setInt(6,cliente.getTipoproduto().ordinal());
-			stmt.setInt(7, cliente.getGenero().ordinal());
-			stmt.setInt(8, cliente.getFaixaEtaria().ordinal());
-			stmt.execute();
-			stmt.close();
+			sl = conexao.prepareStatement(sql);
+			sl.setString(1, cliente.getNome());
+			sl.setString(2, cliente.getEndereco());
+			sl.setInt(3, cliente.getTelefone());
+			sl.setInt(4, cliente.getTelefoneoucelular().ordinal());
+			sl.setString(5,cliente.getEmail());
+			sl.setInt(6,cliente.getTipoproduto().ordinal());
+			sl.setInt(7, cliente.getGenerox().ordinal());
+			sl.setInt(8, cliente.getFaixetaria().ordinal());
+			sl.execute();
+			sl.close();
 			conexao.close();
 		} catch (Exception e) {
 			throw new RuntimeException(e);
@@ -42,7 +42,7 @@ public class DaoCliente {
 		
 	}
 	public List<Cliente> listar() {
-		String sql = "select * from tb_produto order by nome asc";
+		String sql = "select * from tb_cliente order by nome asc";
 		List<Cliente> lista = new ArrayList<Cliente>();
 		PreparedStatement stmt;
 		try {
@@ -67,15 +67,15 @@ public class DaoCliente {
 				TelefoneOuCelular tele = TelefoneOuCelular.values()[posEnumn];
 				c.setTelefoneoucelular(tele);
 				
-				int posEnum = rs.getInt("tipo_produto");
+				int posEnum = rs.getInt("tprodutos");
 				
 				// descobre a enumeração através da posição
 				TipoProduto tipos = TipoProduto.values()[posEnum];
 				// "setar" o tipo no produto
 				c.setTipoproduto(tipos);
-				int posEnumG = rs.getInt("genero");
+				int posEnumG = rs.getInt("sex");
 				Genero gen = Genero.values()[posEnumG];
-				c.setGenero(gen);
+				c.setGenerox(gen);
 				int posEnumf = rs.getInt("faixa_etaria");
 				FaixaEtaria faix = FaixaEtaria.values()[posEnumf];
 				c.setFaixetaria(faix);

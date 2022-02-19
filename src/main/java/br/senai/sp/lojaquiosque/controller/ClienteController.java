@@ -42,7 +42,8 @@ public class ClienteController {
 		System.out.println(cliente.getTelefoneoucelular());
 		System.out.println(cliente.getEmail());
 		System.out.println(cliente.getTipoproduto());
-		System.out.println(cliente.getGenero());
+		System.out.println(cliente.getGenerox());
+		System.out.println(cliente.getFaixetaria());
 		DaoCliente dao = new DaoCliente();
 		dao.inserir(cliente);
 		

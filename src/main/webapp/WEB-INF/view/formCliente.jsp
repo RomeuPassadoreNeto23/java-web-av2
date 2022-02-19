@@ -75,18 +75,22 @@ label {
 </style>
 <body>
 	<form action="salvarClinete" method="post">
-		<fieldset class="login">
+	
 			<h1 class="h1">Login</h1>
+			Lista de Cliente >>>> ${tipos }
+			Lista de Cliente >>>> ${tptelefone }
+			Lista de Cliente >>>> ${genero }
+			Lista de Cliente >>>> ${faixa }
 
 			<label for="input_nome" class="labNome">Nome:</label> <input type="text"
-				name="nome" id="input_nome" value="Digite seu nome" ${Cliente.nome }> <br> <label
+				name="nome" id="input_nome" value="Digite seu nome"> <br> <label
 				for="endereco" class="labEndereco">Endereço:</label> <input
 				type="text" name="endereco" value="Digite seu endereço"> <br>
-			<label for="contato" class="labContato">Telefon:</label>
-			<input type="tel"  name="contato" value="Digite seu telefone">
+			<label for="telefone" class="labContato">Telefon:</label>
+			<input type="tel"  name="telefone" value="Digite seu telefone">
 			<br>
-			     <label  for="tptelefone">telefone ou celular: </label>
-				<select name="tptelefone" class="slt_produtos">
+			     <label  for="telefoneoucelular">telefone ou celular: </label>
+				<select name="telefoneoucelular" class="slt_produtos"> 
 					<c:forEach items="${tptelefone}" var="t">
 						<option value="${t }">${t.toString() }</option>
 					</c:forEach>
@@ -94,32 +98,32 @@ label {
 			
 				 <br> <label
 				for="email" class="labEmail">E-mail:</label> <input type="email"
-				name="email" value="Digite" class="InEmail"> <br> <label
-				for="tprodutos" class="labProduto">Produto de interesse:</label>
-			<select name="tprodutos" class="slt_produtos">
+				name="email" value="Digite" class="InEmail"> <br> 
+				<label for="tipoproduto" class="labProduto">Produto de interesse:</label>
+			    <select name="tipoproduto" >
 					<c:forEach items="${tipos}" var="t">
 						<option value="${t }">${t.toString() }</option>
 					</c:forEach>
-			</select>
-			</select> <br> <label for="">Gênero:</label> <select name="genero"
-				class="gen_produtos">
-			<c:forEach items="${genero}" var="t">
-						<option value="${g }">${t.toString() }</option>
+			     </select>
+		    <br>
+		  <label for="generox" class="labProduto">Genero:</label>
+			    <select name="generox" >
+					<c:forEach items="${genero}" var="t">
+						<option value="${t }">${t.toString() }</option>
 					</c:forEach>
-			
-
-			</select> <br> <label for="">Faixa etária:</label> <select name="Faixa"
-				class="ft_etaria">
-				<c:forEach items="${faixa}" var="t">
-						<option value="${f }">${t.toString() }</option>
+			     </select>
+			 <br> 
+			  <label for="faixetaria" class="labProduto">faixa etaria:</label>
+			    <select name="faixetaria" >
+					<c:forEach items="${faixa}" var="t">
+						<option value="${t }">${t.toString() }</option>
 					</c:forEach>
-
-
-			</select> <br>
+			     </select>
+			  <br>
 
 			<button type="submit" value="salvar" class="btCadastrar">Cadastrar</button>
 
-		</fieldset>
+		
 	</form>
 
 </body>
