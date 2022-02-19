@@ -26,24 +26,17 @@ public class ClienteController {
 		
 	}
 	
-	@RequestMapping("listacliente")
-	public String Listarcliente(Model model) {
-		DaoCliente dao = new DaoCliente();
-		model.addAttribute("Cliente",dao.listar());
-		
-		return "listacliente";
-	}
 	
 	@RequestMapping("salvarClinete")
 	public String salvarCliente(Cliente cliente) {
 		System.out.println(cliente.getNome());
 		System.out.println(cliente.getEndereco());
-		System.out.println(cliente.getTelefone());
-		System.out.println(cliente.getTelefoneoucelular());
+		System.out.println(cliente.getContato());
+		System.out.println(cliente.getTptelefone());
 		System.out.println(cliente.getEmail());
-		System.out.println(cliente.getTipoproduto());
-		System.out.println(cliente.getGenerox());
-		System.out.println(cliente.getFaixetaria());
+		System.out.println(cliente.getTprodutos());
+		System.out.println(cliente.getSex());
+		System.out.println(cliente.getFaixa_etaria());
 		DaoCliente dao = new DaoCliente();
 		dao.inserir(cliente);
 		
@@ -51,6 +44,14 @@ public class ClienteController {
 		
 		
 	}
+	@RequestMapping("listacliente")
+	public String Listarcliente(Model model) {
+		DaoCliente dao = new DaoCliente();
+		model.addAttribute("cliente",dao.listar());
+		
+		return "listacliente";
+	}
+	
 	
 
 }

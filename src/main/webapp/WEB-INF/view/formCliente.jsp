@@ -86,11 +86,11 @@ label {
 				name="nome" id="input_nome" value="Digite seu nome"> <br> <label
 				for="endereco" class="labEndereco">Endereço:</label> <input
 				type="text" name="endereco" value="Digite seu endereço"> <br>
-			<label for="telefone" class="labContato">Telefon:</label>
-			<input type="tel"  name="telefone" value="Digite seu telefone">
+			<label for="contato" class="labContato">Telefon:</label>
+			<input type="tel"  name="contato" value="Digite seu telefone">
 			<br>
-			     <label  for="telefoneoucelular">telefone ou celular: </label>
-				<select name="telefoneoucelular" class="slt_produtos"> 
+			     <label  for="tptelefone">telefone ou celular: </label>
+				<select name="tptelefone" class="slt_produtos"> 
 					<c:forEach items="${tptelefone}" var="t">
 						<option value="${t }">${t.toString() }</option>
 					</c:forEach>
@@ -99,22 +99,22 @@ label {
 				 <br> <label
 				for="email" class="labEmail">E-mail:</label> <input type="email"
 				name="email" value="Digite" class="InEmail"> <br> 
-				<label for="tipoproduto" class="labProduto">Produto de interesse:</label>
-			    <select name="tipoproduto" >
+				<label for="tprodutos" class="labProduto">Produto de interesse:</label>
+			    <select name="tprodutos" >
 					<c:forEach items="${tipos}" var="t">
 						<option value="${t }">${t.toString() }</option>
 					</c:forEach>
 			     </select>
 		    <br>
-		  <label for="generox" class="labProduto">Genero:</label>
-			    <select name="generox" >
+		  <label for="sex" class="labProduto">Genero:</label>
+			    <select name="sex" >
 					<c:forEach items="${genero}" var="t">
 						<option value="${t }">${t.toString() }</option>
 					</c:forEach>
 			     </select>
 			 <br> 
-			  <label for="faixetaria" class="labProduto">faixa etaria:</label>
-			    <select name="faixetaria" >
+			  <label for="faixa_etaria" class="labProduto">faixa etaria:</label>
+			    <select name="faixa_etaria" >
 					<c:forEach items="${faixa}" var="t">
 						<option value="${t }">${t.toString() }</option>
 					</c:forEach>

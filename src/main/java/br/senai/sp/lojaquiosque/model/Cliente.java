@@ -1,90 +1,98 @@
 package br.senai.sp.lojaquiosque.model;
 
 public class Cliente {
-	private TelefoneOuCelular telefoneoucelular;
-	public TelefoneOuCelular getTelefoneoucelular() {
-		return telefoneoucelular;
-	}
-	public void setTelefoneoucelular(TelefoneOuCelular telefoneoucelular) {
-		this.telefoneoucelular = telefoneoucelular;
-	}
+	private TelefoneOuCelular tptelefone;
+
 	private Long id;
+
 	public Long getId() {
 		return id;
 	}
+
 	public void setId(Long id) {
 		this.id = id;
 	}
-	private FaixaEtaria faixaEtaria;
 
-	
-	public FaixaEtaria getFaixaEtaria() {
-		return faixaEtaria;
-	}
-	public void setFaixaEtaria(FaixaEtaria faixaEtaria) {
-		this.faixaEtaria = faixaEtaria;
-	}
-	
 	private String nome;
-	private int telefone;
+	private int contato;
 	private String endereco;
 	private int idade;
-	private Genero generox;
-	
-	
-	
-	public Genero getGenerox() {
-		return generox;
-	}
-	public void setGenerox(Genero generox) {
-		this.generox = generox;
-	}
+	private Genero sex;
+
 	public int getIdade() {
 		return idade;
 	}
+
 	public void setIdade(int idade) {
 		this.idade = idade;
 	}
+
 	private String email;
-	private  TipoProduto tipoproduto;
-	private FaixaEtaria faixetaria;
-	
-	public FaixaEtaria getFaixetaria() {
-		return faixetaria;
-	}
-	public void setFaixetaria(FaixaEtaria faixetaria) {
-		this.faixetaria = faixetaria;
-	}
+	private TipoProduto tprodutos;
+	private FaixaEtaria faixa_etaria;
+
 	public String getNome() {
 		return nome;
 	}
+
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public int getTelefone() {
-		return telefone;
-	}
-	public void setTelefone(int telefone) {
-		this.telefone = telefone;
-	}
+
 	public String getEndereco() {
 		return endereco;
 	}
+
 	public void setEndereco(String endereco) {
 		this.endereco = endereco;
 	}
+
 	public String getEmail() {
 		return email;
 	}
+
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public TipoProduto getTipoproduto() {
-		return tipoproduto;
+
+	public TelefoneOuCelular getTptelefone() {
+		return tptelefone;
 	}
-	public void setTipoproduto(TipoProduto tipoproduto) {
-		this.tipoproduto = tipoproduto;
+
+	public void setTptelefone(TelefoneOuCelular tptelefone) {
+		this.tptelefone = tptelefone;
 	}
-	
+
+	public int getContato() {
+		return contato;
+	}
+
+	public void setContato(int contato) {
+		this.contato = contato;
+	}
+
+	public Genero getSex() {
+		return sex;
+	}
+
+	public void setSex(Genero sex) {
+		this.sex = sex;
+	}
+
+	public TipoProduto getTprodutos() {
+		return tprodutos;
+	}
+
+	public void setTprodutos(TipoProduto tprodutos) {
+		this.tprodutos = tprodutos;
+	}
+
+	public FaixaEtaria getFaixa_etaria() {
+		return faixa_etaria;
+	}
+
+	public void setFaixa_etaria(FaixaEtaria faixa_etaria) {
+		this.faixa_etaria = faixa_etaria;
+	}
 
 }

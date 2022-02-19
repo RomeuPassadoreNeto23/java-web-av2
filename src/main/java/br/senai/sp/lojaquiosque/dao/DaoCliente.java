@@ -26,12 +26,12 @@ public class DaoCliente {
 			sl = conexao.prepareStatement(sql);
 			sl.setString(1, cliente.getNome());
 			sl.setString(2, cliente.getEndereco());
-			sl.setInt(3, cliente.getTelefone());
-			sl.setInt(4, cliente.getTelefoneoucelular().ordinal());
+			sl.setInt(3, cliente.getContato());
+			sl.setInt(4, cliente.getTptelefone().ordinal());
 			sl.setString(5,cliente.getEmail());
-			sl.setInt(6,cliente.getTipoproduto().ordinal());
-			sl.setInt(7, cliente.getGenerox().ordinal());
-			sl.setInt(8, cliente.getFaixetaria().ordinal());
+			sl.setInt(6,cliente.getTprodutos().ordinal());
+			sl.setInt(7, cliente.getSex().ordinal());
+			sl.setInt(8, cliente.getFaixa_etaria().ordinal());
 			sl.execute();
 			sl.close();
 			conexao.close();
@@ -52,8 +52,8 @@ public class DaoCliente {
 				Cliente c = new Cliente();
 				c.setId(rs.getLong("id"));
 				c.setNome(rs.getString("nome"));
-				c.setEmail(rs.getString("email"));
-				c.setTelefone(rs.getInt("contato"));
+				c.setEndereco(rs.getString("endereco"));
+				c.setContato(rs.getInt("contato"));;
 				// cria um Calendar
 				//Calendar validade = Calendar.getInstance();
 				// extrair o Date do resultset
@@ -65,20 +65,21 @@ public class DaoCliente {
 				// extrair a posição da enumeração do resultset
 				int posEnumn = rs.getInt("tptelefone");
 				TelefoneOuCelular tele = TelefoneOuCelular.values()[posEnumn];
-				c.setTelefoneoucelular(tele);
+				c.setTptelefone(tele);
+				c.setEmail(rs.getString("email"));
 				
 				int posEnum = rs.getInt("tprodutos");
 				
 				// descobre a enumeração através da posição
 				TipoProduto tipos = TipoProduto.values()[posEnum];
 				// "setar" o tipo no produto
-				c.setTipoproduto(tipos);
+				c.setTprodutos(tipos);
 				int posEnumG = rs.getInt("sex");
 				Genero gen = Genero.values()[posEnumG];
-				c.setGenerox(gen);
+				c.setSex(gen);
 				int posEnumf = rs.getInt("faixa_etaria");
 				FaixaEtaria faix = FaixaEtaria.values()[posEnumf];
-				c.setFaixetaria(faix);
+				c.setFaixa_etaria(faix);
 				
 				
 				lista.add(c);
