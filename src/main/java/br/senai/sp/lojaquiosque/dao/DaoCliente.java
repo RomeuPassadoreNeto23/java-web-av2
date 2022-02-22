@@ -1,6 +1,7 @@
 package br.senai.sp.lojaquiosque.dao;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -20,7 +21,7 @@ public class DaoCliente {
 
 	}
 	public void inserir(Cliente cliente) {
-		String sql = "insert into tb_cliente(nome,endereco,contato,tptelefone,email,tprodutos,sex,faixa_etaria)  values (?,?,?,?,?,?,?,?)";
+		String sql = "insert into tb_cliente(nome,endereco,contato,tptelefone,email,tprodutos,sex,faixa_etaria,eatacadastro)  values (?,?,?,?,?,?,?,?,?)";
 		PreparedStatement sl;
 		try {
 			sl = conexao.prepareStatement(sql);
@@ -32,6 +33,7 @@ public class DaoCliente {
 			sl.setInt(6,cliente.getTprodutos().ordinal());
 			sl.setInt(7, cliente.getSex().ordinal());
 			sl.setInt(8, cliente.getFaixa_etaria().ordinal());
+			sl.setDate(9, new Date(cliente.getEatacadastro().getTimeInMillis()));
 			sl.execute();
 			sl.close();
 			conexao.close();

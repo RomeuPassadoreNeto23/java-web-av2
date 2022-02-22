@@ -1,9 +1,83 @@
 package br.senai.sp.lojaquiosque.model;
 
+
+import java.util.Calendar;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class Cliente {
 	private TelefoneOuCelular tptelefone;
 
 	private Long id;
+	
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private  Calendar eatacadastro = new Calendar() {
+		
+		@Override
+		public void roll(int field, boolean up) {
+			// TODO Auto-generated method stub
+			
+		}
+		
+		@Override
+		public int getMinimum(int field) {
+			// TODO Auto-generated method stub
+			return 0;
+		}
+		
+		@Override
+		public int getMaximum(int field) {
+			// TODO Auto-generated method stub
+			return 0;
+		}
+		
+		@Override
+		public int getLeastMaximum(int field) {
+			// TODO Auto-generated method stub
+			return 0;
+		}
+		
+		@Override
+		public int getGreatestMinimum(int field) {
+			// TODO Auto-generated method stub
+			return 0;
+		}
+		
+		@Override
+		protected void computeTime() {
+			// TODO Auto-generated method stub
+			
+		}
+		
+		@Override
+		protected void computeFields() {
+			// TODO Auto-generated method stub
+			
+		}
+		
+		@Override
+		public void add(int field, int amount) {
+			// TODO Auto-generated method stub
+			
+		}
+	};
+		
+		
+	;
+	
+
+	
+	     
+	
+
+	
+	public Calendar getEatacadastro() {
+		return eatacadastro;
+	}
+
+	public void setEatacadastro(Calendar eatacadastro) {
+		this.eatacadastro = eatacadastro;
+	}
 
 	public Long getId() {
 		return id;
