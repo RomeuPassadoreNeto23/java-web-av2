@@ -23,19 +23,23 @@
           <th class="PdInteresse">Produto de interesse</th>
           <th class="Genero">Genero</th>
           <th class="FaixaEtaria">Faixa etária</th>
+          <th> Data do Cadastro </th>
+          <th> Hora do cadastro</th>
         </tr>
        
-        <c:forEach  items="${cliente}" var="p">
+        <c:forEach  items="${cliente}" var="c">
          <tr>
-            <td>${p.id }</td>
-            <td>${p.nome }</td>
-            <td>${p.endereco }</td>
-            <td>${p.contato }</td>
-            <td>${p.tptelefone.toString() }</td>
-            <td>${p.email }</td>
-            <td>${p.tprodutos.toString() }</td>
-            <td>${p.sex.toString() }</td>
-            <td>${p.faixa_etaria.toString() }</td>
+            <td>${c.id }</td>
+            <td>${c.nome }</td>
+            <td>${c.endereco }</td>
+            <td>${c.contato }</td>
+            <td>${c.tptelefone.toString() }</td>
+            <td>${c.email }</td>
+            <td>${c.tprodutos.toString() }</td>
+            <td>${c.sex.toString() }</td>
+            <td>${c.faixa_etaria.toString() }</td>
+            <td><fmt:formatDate pattern="dd-MM-yyyy" value="${c.eatacadastro.time }" /></td>
+             <td><fmt:formatDate pattern=" HH:mm:ss" value="${c.eatacadastro.time }" /></td>
          </tr>
          </c:forEach>   
        

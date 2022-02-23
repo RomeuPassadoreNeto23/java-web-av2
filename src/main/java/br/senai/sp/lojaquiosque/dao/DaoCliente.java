@@ -5,6 +5,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import br.senai.sp.lojaquiosque.model.Cliente;
@@ -82,6 +83,14 @@ public class DaoCliente {
 				int posEnumf = rs.getInt("faixa_etaria");
 				FaixaEtaria faix = FaixaEtaria.values()[posEnumf];
 				c.setFaixa_etaria(faix);
+				// cria um Calendar
+				Calendar validade = Calendar.getInstance();
+				// extrair o Date do resultset
+				Date dataBd = rs.getDate("eatacadastro");
+				// "setar" a data do calendar pela data do Date
+				validade.setTimeInMillis(dataBd.getTime());
+				// "setar" a validade no produto
+				c.setValidade(validade);
 				
 				
 				lista.add(c);

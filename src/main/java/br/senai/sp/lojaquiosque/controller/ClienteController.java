@@ -37,6 +37,7 @@ public class ClienteController {
 		System.out.println(cliente.getTprodutos());
 		System.out.println(cliente.getSex());
 		System.out.println(cliente.getFaixa_etaria());
+		System.out.println(cliente.getEatacadastro());
 		DaoCliente dao = new DaoCliente();
 		dao.inserir(cliente);
 		
