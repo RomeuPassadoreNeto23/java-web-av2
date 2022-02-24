@@ -1,5 +1,7 @@
 package br.senai.sp.lojaquiosque.controller;
 
+import java.util.Calendar;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -37,8 +39,12 @@ public class ClienteController {
 		System.out.println(cliente.getTprodutos());
 		System.out.println(cliente.getSex());
 		System.out.println(cliente.getFaixa_etaria());
-		System.out.println(cliente.getEatacadastro());
+		
+		
+		
 		DaoCliente dao = new DaoCliente();
+		
+		cliente.setEatacadastro(Calendar.getInstance());
 		dao.inserir(cliente);
 		
 		return "redirect:listacliente" ;

@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -34,7 +35,8 @@ public class DaoCliente {
 			sl.setInt(6,cliente.getTprodutos().ordinal());
 			sl.setInt(7, cliente.getSex().ordinal());
 			sl.setInt(8, cliente.getFaixa_etaria().ordinal());
-			sl.setDate(9, new Date(cliente.getEatacadastro().getTimeInMillis()));
+			sl.setTimestamp(9, new Timestamp(cliente.getEatacadastro().getTimeInMillis()));
+			//sl.setDate(9, new Date(cliente.getEatacadastro().getTimeInMillis()));
 			sl.execute();
 			sl.close();
 			conexao.close();
@@ -84,13 +86,14 @@ public class DaoCliente {
 				FaixaEtaria faix = FaixaEtaria.values()[posEnumf];
 				c.setFaixa_etaria(faix);
 				// cria um Calendar
-				Calendar validade = Calendar.getInstance();
+				  Calendar validade = Calendar.getInstance();
 				// extrair o Date do resultset
-				Date dataBd = rs.getDate("eatacadastro");
+				
 				// "setar" a data do calendar pela data do Date
-				validade.setTimeInMillis(dataBd.getTime());
+				validade.setTimeInMillis( rs.getTimestamp("eatacadastro").getTime());
+				c.setEatacadastro(validade);
 				// "setar" a validade no produto
-				c.setValidade(validade);
+				
 				
 				
 				lista.add(c);

@@ -1,6 +1,7 @@
 package br.senai.sp.lojaquiosque.model;
 
 import java.util.Calendar;
+import java.util.Date;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -8,7 +9,7 @@ public class Cliente {
 	private TelefoneOuCelular tptelefone;
 
 	private Long id;
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	private Calendar validade;
 	
 
@@ -20,8 +21,8 @@ public class Cliente {
 		this.validade = validade;
 	}
 
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private Calendar eatacadastro = Calendar.getInstance();
+	@DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss")
+	private Calendar eatacadastro;
 
 	public Calendar getEatacadastro() {
 		return eatacadastro;

@@ -77,11 +77,7 @@ label {
 	<form action="salvarClinete" method="post">
 	
 			<h1 class="h1">Login</h1>
-			Lista de Cliente >>>> ${tipos }
-			Lista de Cliente >>>> ${tptelefone }
-			Lista de Cliente >>>> ${genero }
-			Lista de Cliente >>>> ${faixa }
-
+		
 			<label for="input_nome" class="labNome">Nome:</label> <input type="text"
 				name="nome" id="input_nome" value="Digite seu nome"> <br> <label
 				for="endereco" class="labEndereco">Endereço:</label> <input
