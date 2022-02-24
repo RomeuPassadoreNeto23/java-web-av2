@@ -109,12 +109,8 @@ label {
 					</c:forEach>
 			     </select>
 			 <br> 
-			  <label for="faixa_etaria" class="labProduto">faixa etaria:</label>
-			    <select name="faixa_etaria" >
-					<c:forEach items="${faixa}" var="t">
-						<option value="${t }">${t.toString() }</option>
-					</c:forEach>
-			     </select>
+			  <label for="idade" class="labProduto">faixa etaria:</label>
+			  <input type="number" name="idade"> 
 			  <br>
 
 			<button type="submit" value="salvar" class="btCadastrar">Cadastrar</button>

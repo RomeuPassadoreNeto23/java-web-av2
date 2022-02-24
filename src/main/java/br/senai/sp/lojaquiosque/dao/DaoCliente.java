@@ -1,16 +1,15 @@
 package br.senai.sp.lojaquiosque.dao;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
 import br.senai.sp.lojaquiosque.model.Cliente;
-import br.senai.sp.lojaquiosque.model.FaixaEtaria;
 import br.senai.sp.lojaquiosque.model.Genero;
 import br.senai.sp.lojaquiosque.model.TelefoneOuCelular;
 import br.senai.sp.lojaquiosque.model.TipoProduto;
@@ -34,7 +33,7 @@ public class DaoCliente {
 			sl.setString(5,cliente.getEmail());
 			sl.setInt(6,cliente.getTprodutos().ordinal());
 			sl.setInt(7, cliente.getSex().ordinal());
-			sl.setInt(8, cliente.getFaixa_etaria().ordinal());
+			sl.setInt(8, cliente.getIdade());
 			sl.setTimestamp(9, new Timestamp(cliente.getEatacadastro().getTimeInMillis()));
 			//sl.setDate(9, new Date(cliente.getEatacadastro().getTimeInMillis()));
 			sl.execute();
@@ -82,9 +81,7 @@ public class DaoCliente {
 				int posEnumG = rs.getInt("sex");
 				Genero gen = Genero.values()[posEnumG];
 				c.setSex(gen);
-				int posEnumf = rs.getInt("faixa_etaria");
-				FaixaEtaria faix = FaixaEtaria.values()[posEnumf];
-				c.setFaixa_etaria(faix);
+				c.setIdade(rs.getInt("faixa_etaria"));
 				// cria um Calendar
 				  Calendar validade = Calendar.getInstance();
 				// extrair o Date do resultset
@@ -105,5 +102,40 @@ public class DaoCliente {
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}
+	}
+	public void excluir(long id) {
+		String sql = "delete from tb_cliente where id = ?";
+		PreparedStatement stmt;
+		try {
+			stmt = conexao.prepareStatement(sql);
+			stmt.setLong(1, id);
+			stmt.execute();
+			stmt.close();
+			conexao.close();
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+	}
+	public void atualizar(Cliente cliente) {
+		String sql = "update tb_cliente set nome = ?, "
+				+ "endereco = ?, contato = ?,tptelefone = ?,email = ?,tprodutos = ?,sex = ?,faixa_etaria = ? where id = ? "
+				;
+		PreparedStatement stmt; 
+		try {
+			stmt = conexao.prepareStatement(sql);
+			stmt.setString(1, cliente.getNome());			
+			stmt.setString(2, cliente.getEndereco());
+			stmt.setInt(3 , cliente.getContato());
+			stmt.setInt(4, cliente.getTptelefone().ordinal());
+			stmt.setString(5, cliente.getEmail());
+			stmt.setInt(6, cliente.getTprodutos().ordinal() );
+			stmt.setInt(6, cliente.getSex().ordinal() );
+			stmt.setInt(8, cliente.getIdade());
+			stmt.execute();
+			stmt.close();
+			conexao.close();
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}					
 	}
 }
