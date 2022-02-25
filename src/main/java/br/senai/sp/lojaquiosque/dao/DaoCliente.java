@@ -123,19 +123,76 @@ public class DaoCliente {
 		PreparedStatement stmt; 
 		try {
 			stmt = conexao.prepareStatement(sql);
-			stmt.setString(1, cliente.getNome());			
+			stmt.setString(1, cliente.getNome());
 			stmt.setString(2, cliente.getEndereco());
-			stmt.setInt(3 , cliente.getContato());
-			stmt.setInt(4, cliente.getTptelefone().ordinal());
-			stmt.setString(5, cliente.getEmail());
-			stmt.setInt(6, cliente.getTprodutos().ordinal() );
-			stmt.setInt(6, cliente.getSex().ordinal() );
+			stmt.setInt(3, cliente.getContato());
+            stmt.setInt(4, cliente.getTptelefone().ordinal());
+			stmt.setString(5,cliente.getEmail());
+			stmt.setInt(6,cliente.getTprodutos().ordinal());
+			stmt.setInt(7, cliente.getSex().ordinal());
 			stmt.setInt(8, cliente.getIdade());
+			stmt.setLong(9, cliente.getId());
 			stmt.execute();
 			stmt.close();
 			conexao.close();
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}					
+	}
+	public Cliente buscar(long idcliente){
+		String sql = "select * from tb_cliente where id = ?";
+		Cliente c = null;
+		PreparedStatement stmt;
+		try {
+			stmt = conexao.prepareStatement(sql);
+			stmt.setLong(1, idcliente);
+			ResultSet rs = stmt.executeQuery();
+			if(rs.next()) {
+				c = new Cliente();
+				c.setId(rs.getLong("id"));
+				c.setNome(rs.getString("nome"));
+				c.setEndereco(rs.getString("endereco"));
+				c.setContato(rs.getInt("contato"));;
+				// cria um Calendar
+				//Calendar validade = Calendar.getInstance();
+				// extrair o Date do resultset
+				//Date dataBd = rs.getDate("data_validade");
+				// "setar" a data do calendar pela data do Date
+				//validade.setTimeInMillis(dataBd.getTime());
+				// "setar" a validade no produto
+			//	p.setDataValidade(validade);
+				// extrair a posição da enumeração do resultset
+				int posEnumn = rs.getInt("tptelefone");
+				TelefoneOuCelular tele = TelefoneOuCelular.values()[posEnumn];
+				c.setTptelefone(tele);
+				c.setEmail(rs.getString("email"));
+				
+				int posEnum = rs.getInt("tprodutos");
+				
+				// descobre a enumeração através da posição
+				TipoProduto tipos = TipoProduto.values()[posEnum];
+				// "setar" o tipo no produto
+				c.setTprodutos(tipos);
+				int posEnumG = rs.getInt("sex");
+				Genero gen = Genero.values()[posEnumG];
+				c.setSex(gen);
+				c.setIdade(rs.getInt("faixa_etaria"));
+				// cria um Calendar
+				  Calendar validade = Calendar.getInstance();
+				// extrair o Date do resultset
+				
+				// "setar" a data do calendar pela data do Date
+				validade.setTimeInMillis( rs.getTimestamp("eatacadastro").getTime());
+				c.setEatacadastro(validade);
+				// "setar" a validade no produto
+				
+			}
+			rs.close();
+			stmt.close();
+			conexao.close();
+			return c;
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
 	}
 }

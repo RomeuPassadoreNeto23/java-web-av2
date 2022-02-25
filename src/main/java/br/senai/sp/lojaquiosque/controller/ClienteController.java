@@ -39,9 +39,15 @@ public class ClienteController {
 		System.out.println(cliente.getFaixa_etaria());
 
 		DaoCliente dao = new DaoCliente();
-
 		cliente.setEatacadastro(Calendar.getInstance());
-		dao.inserir(cliente);
+		if(cliente.getId() == null) {
+			dao.inserir(cliente);
+		}else {
+			dao.atualizar(cliente);
+		}
+
+		
+
 
 		return "redirect:listacliente";
 
@@ -62,12 +68,16 @@ public class ClienteController {
 		return "redirect:listacliente";
 		
 	}
-	@RequestMapping("alterarProduto")
+	@RequestMapping("alterarCliente")
 	public String alterar(long idcliente, Model model) {
+		model.addAttribute("genero", Genero.values());
+		model.addAttribute("tipos", TipoProduto.values());
+		model.addAttribute("faixa", FaixaEtaria.values());
+		model.addAttribute("tptelefone", TelefoneOuCelular.values());
 		DaoCliente dao = new DaoCliente();
-		//model.addAttribute("produto", dao.buscar(idcliente));
+		model.addAttribute("cliente", dao.buscar(idcliente));
 		
-		return "forward:formProduto";
+		return "forward:formCliente";
 	}
 
 }

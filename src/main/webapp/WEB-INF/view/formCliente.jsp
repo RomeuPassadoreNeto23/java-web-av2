@@ -1,5 +1,7 @@
+<%@page import="br.senai.sp.lojaquiosque.model.Cliente"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@page import="br.senai.sp.lojaquiosque.model.Cliente"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
@@ -74,43 +76,43 @@ label {
 }
 </style>
 <body>
-	<form action="salvarClinete" method="post">
-	
+	<form action="salvarClinete" method="get">
+	<input type="hidden" name="id" value="${cliente.id }" />
 			<h1 class="h1">Login</h1>
 		
 			<label for="input_nome" class="labNome">Nome:</label> <input type="text"
-				name="nome" id="input_nome" value="Digite seu nome"> <br> <label
-				for="endereco" class="labEndereco">Endereço:</label> <input
-				type="text" name="endereco" value="Digite seu endereço"> <br>
+				name="nome" id="input_nome" value="${cliente.nome }"> <br> <label
+				for="endereco" class="labEndereco">Cndereço:</label> <input
+				type="text" name="endereco" value="${cliente.endereco }"> <br>
 			<label for="contato" class="labContato">Telefon:</label>
-			<input type="tel"  name="contato" value="Digite seu telefone">
+			<input type="tel"  name="contato" value="${cliente.contato }">
 			<br>
 			     <label  for="tptelefone">telefone ou celular: </label>
 				<select name="tptelefone" class="slt_produtos"> 
 					<c:forEach items="${tptelefone}" var="t">
-						<option value="${t }">${t.toString() }</option>
+					 <option <c:if test="${cliente.tptelefone == t }">selected</c:if> value="${t }">${t.toString() }</option>
 					</c:forEach>
 			</select>
 			
 				 <br> <label
 				for="email" class="labEmail">E-mail:</label> <input type="email"
-				name="email" value="Digite" class="InEmail"> <br> 
+				name="email" value="${cliente.email }" class="InEmail"> <br> 
 				<label for="tprodutos" class="labProduto">Produto de interesse:</label>
 			    <select name="tprodutos" >
 					<c:forEach items="${tipos}" var="t">
-						<option value="${t }">${t.toString() }</option>
+						 <option <c:if test="${cliente.tprodutos == t }">selected</c:if> value="${t }">${t.toString() }</option>
 					</c:forEach>
 			     </select>
 		    <br>
 		  <label for="sex" class="labProduto">Genero:</label>
 			    <select name="sex" >
 					<c:forEach items="${genero}" var="t">
-						<option value="${t }">${t.toString() }</option>
+					 <option <c:if test="${cliente.sex == t }">selected</c:if> value="${t }">${t.toString() }</option>
 					</c:forEach>
 			     </select>
 			 <br> 
 			  <label for="idade" class="labProduto">faixa etaria:</label>
-			  <input type="number" name="idade"> 
+			  <input type="number" name="idade" value="${cliente.idade }"> 
 			  <br>
 
 			<button type="submit" value="salvar" class="btCadastrar">Cadastrar</button>

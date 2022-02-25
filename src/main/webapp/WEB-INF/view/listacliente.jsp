@@ -25,6 +25,7 @@
           <th class="FaixaEtaria">idade</th>
           <th> Data do Cadastro </th>
           <th> Hora do cadastro</th>
+          <th> alterar cliente</th>
           <th> excluir </th>
         </tr>
        
@@ -41,6 +42,7 @@
             <td>${c.idade}</td>
             <td><fmt:formatDate pattern="dd-MM-yyyy" value="${c.eatacadastro.time }" /></td>
              <td><fmt:formatDate pattern=" HH:mm:ss" value="${c.eatacadastro.time }" /></td>
+             <td><a  href="alterarCliente?idcliente=${c.id }">Alterar</a></td>
              <td><a  href="excluirCliente?idcliente=${c.id }" onclick="return confirm('Deseja excluir?')">Excluir</a></td>
          </tr>
          </c:forEach>   
