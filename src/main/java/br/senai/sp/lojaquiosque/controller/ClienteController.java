@@ -143,7 +143,7 @@ public class ClienteController {
 		model.addAttribute("tarde",trade );
 		model.addAttribute("noite",niote );   
 		DaoCliente dao5 = new DaoCliente();
-		int dia = 0;
+		int dia =  0;
 		int dia1 = 0;
 		int dia2 = 0;
 		int dia3 = 0;
@@ -192,7 +192,7 @@ public class ClienteController {
 			
 		}
 		
-		model.addAttribute("Segunda",dia );
+		model.addAttribute("Segunda",dia1 );
 		model.addAttribute("Terca", dia2 );
 		model.addAttribute("Quarta",dia3 );
 		model.addAttribute("Quinta",dia4 );
