@@ -63,13 +63,13 @@
                 </tr>
                 <tr> 
                     <th id="th">Qtde de clientes</th>
-                    <td>---</td>
-                    <td>---</td>
-                    <td>---</td>
-                    <td>---</td>
-                    <td>---</td>
-                    <td>---</td>
-                    <td>---</td>
+                    <td>${Segunda }</td>
+                    <td>${Terca }</td>
+                    <td>${Quarta }</td>
+                    <td>${Quinta }</td>
+                    <td>${Sexta }</td>
+                    <td>${Sabado }</td>
+                    <td>${domingo }</td>
                     
                 </tr>
                 
@@ -81,17 +81,17 @@
             <table class="tbSemanal">
                 <tr>
                     <th id="thPeriodo">Manhã</th>
-                    <td id="tdPeriodo">--</td>
+                    <td id="tdPeriodo">${manha }</td>
                     
                 </tr>
                 <tr>
                     <th id="thPeriodo">Tarde</th>
-                    <td id="tdPeriodo">--</td>
+                    <td id="tdPeriodo">${tarde }</td>
                     
                 </tr>
                 <tr>
                     <th id="thPeriodo">Noite</th>
-                    <td id="tdPeriodo">--</td>
+                    <td id="tdPeriodo">${noite }</td>
                     
                 </tr>
                

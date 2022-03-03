@@ -348,6 +348,110 @@ public class DaoCliente {
 			throw new RuntimeException(e);
 		}
 	}
+	public List<Cliente> listarhora() {
+		String sql = "SELECT eatacadastro FROM `tb_cliente`";
+		List<Cliente> lista = new ArrayList<Cliente>();
+		PreparedStatement stmt;
+		try {
+			stmt = conexao.prepareStatement(sql);
+			ResultSet rs = stmt.executeQuery();
+			while (rs.next()) {
+				Cliente c = new Cliente();
+				
+				// cria um Calendar
+				//Calendar validade = Calendar.getInstance();
+				// extrair o Date do resultset
+				//Date dataBd = rs.getDate("data_validade");
+				// "setar" a data do calendar pela data do Date
+				//validade.setTimeInMillis(dataBd.getTime());
+				// "setar" a validade no produto
+			    //	p.setDataValidade(validade);
+				// extrair a posição da enumeração do resultset
+			
+				
+				
+				
+				// descobre a enumeração através da posição
+				
+				// "setar" o tipo no produto
+				
+				Calendar validade = Calendar.getInstance();
+				validade.setTimeInMillis( rs.getTimestamp("eatacadastro").getTime());
+				c.setEatacadastro(validade);
+				
+				// cria um Calendar
+				
+				// extrair o Date do resultset
+				
+				// "setar" a data do calendar pela data do Date
+			
+				// "setar" a validade no produto
+				
+				
+				
+				lista.add(c);
+				
+			}
+			rs.close();
+			stmt.close();
+			conexao.close();
+			return lista;
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+	}
+	public List<Cliente> listardia() {
+		String sql = "SELECT eatacadastro FROM `tb_cliente`";
+		List<Cliente> lista = new ArrayList<Cliente>();
+		PreparedStatement stmt;
+		try {
+			stmt = conexao.prepareStatement(sql);
+			ResultSet rs = stmt.executeQuery();
+			while (rs.next()) {
+				Cliente c = new Cliente();
+				
+				// cria um Calendar
+				//Calendar validade = Calendar.getInstance();
+				// extrair o Date do resultset
+				//Date dataBd = rs.getDate("data_validade");
+				// "setar" a data do calendar pela data do Date
+				//validade.setTimeInMillis(dataBd.getTime());
+				// "setar" a validade no produto
+			    //	p.setDataValidade(validade);
+				// extrair a posição da enumeração do resultset
+			
+				
+				
+				
+				// descobre a enumeração através da posição
+				
+				// "setar" o tipo no produto
+				
+				Calendar validade = Calendar.getInstance();
+				validade.setTimeInMillis( rs.getTimestamp("eatacadastro").getTime());
+				c.setEatacadastro(validade);
+				
+				// cria um Calendar
+				
+				// extrair o Date do resultset
+				
+				// "setar" a data do calendar pela data do Date
+			
+				// "setar" a validade no produto
+				
+				
+				
+				lista.add(c);
+				
+			}
+			rs.close();
+			stmt.close();
+			conexao.close();
+			return lista;
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+	}
 	
 
 }

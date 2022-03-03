@@ -100,11 +100,11 @@ public class ClienteController {
 			  if(idadecli < 20) {
 				  jovem += 1;
 				  System.out.println(jovem);
-			  }else if (idadecli > 20) {
+			  }else if (idadecli > 20 && idadecli < 50) {
 				  adulto += 1;
 				  System.out.println(adulto);
 				
-			}else if (idadecli > 50) {
+			}else {
 				idoso += 1;
 				System.out.println(idoso);
 				
@@ -127,7 +127,7 @@ public class ClienteController {
 		//horaTrade = horaTrade.from(Instant.parse("12:00:00"));
 	
 		int hora = 0;
-		for(Cliente i :dao4.listar()) {
+		for(Cliente i :dao4.listarhora()) {
 	       	hora =	i.getEatacadastro().get(Calendar.HOUR_OF_DAY);
 	       	if(hora > 6 && hora < 12){
 				manha += 1;
@@ -140,9 +140,64 @@ public class ClienteController {
 	       	
 	      
 		model.addAttribute("manha",manha );
-		model.addAttribute("trade",trade );
-		model.addAttribute("niote",niote );   
-	    	
+		model.addAttribute("tarde",trade );
+		model.addAttribute("noite",niote );   
+		DaoCliente dao5 = new DaoCliente();
+		int dia = 0;
+		int dia2 = 0;
+		int dia3 = 0;
+		int dia4 = 0;
+		int dia5 = 0;
+		int dia6 = 0;
+		int dia7 = 0;
+		
+		for(Cliente i : dao5.listardia()) {
+			 dia = i.getEatacadastro().get(Calendar.DAY_OF_WEEK);
+			 
+			
+			 switch (dia) {
+			 
+			    case Calendar.MONDAY:
+			         dia += 1;
+			      
+			        break;
+			    case Calendar.TUESDAY:
+			        dia2 += 1;
+			        break;
+			    case Calendar.WEDNESDAY:
+			         dia3 += 1;
+			      
+			        break;
+			    case Calendar.THURSDAY:
+			        dia4 += 1;
+			        break;
+			    case Calendar.FRIDAY:
+			         dia5 += 1;
+			      
+			        break;
+			    case Calendar.SATURDAY:
+			        dia6 += 1;
+			        break;
+			    case Calendar.SUNDAY:
+			         dia7 += 1;
+			      
+			        break;
+			    
+			    default:
+			        break;
+			}
+			 
+			
+			
+		}
+		
+		model.addAttribute("Segunda",dia );
+		model.addAttribute("Terca", dia2 );
+		model.addAttribute("Quarta",dia3 );
+		model.addAttribute("Quinta",dia4 );
+		model.addAttribute("Sexta",dia5 );
+		model.addAttribute("Sabado",dia6 ); 
+		model.addAttribute("domingo",dia6 );   	
 	      
 	       
 	    
