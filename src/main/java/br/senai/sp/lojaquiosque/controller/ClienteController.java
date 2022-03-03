@@ -143,7 +143,8 @@ public class ClienteController {
 		model.addAttribute("tarde",trade );
 		model.addAttribute("noite",niote );   
 		DaoCliente dao5 = new DaoCliente();
-		int dia = 0;
+		int dia0 = 0;
+		int dia1 = 1;
 		int dia2 = 0;
 		int dia3 = 0;
 		int dia4 = 0;
@@ -152,13 +153,13 @@ public class ClienteController {
 		int dia7 = 0;
 		
 		for(Cliente i : dao5.listardia()) {
-			 dia = i.getEatacadastro().get(Calendar.DAY_OF_WEEK);
-			 System.out.println(dia);
+			 dia0 = i.getEatacadastro().get(Calendar.DAY_OF_WEEK);
+			 System.out.println(dia0);
 			
-			 switch (dia) {
+			 switch (dia0) {
 			 
 			    case Calendar.MONDAY:
-			         dia += 1;
+			         dia1 += 1;
 			      
 			        break;
 			    case Calendar.TUESDAY:
