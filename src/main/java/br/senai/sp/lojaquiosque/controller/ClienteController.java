@@ -1,10 +1,10 @@
 package br.senai.sp.lojaquiosque.controller;
 
 import java.text.SimpleDateFormat;
+import java.time.Instant;
 import java.util.Calendar;
 import java.util.Date;
 
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,6 +18,7 @@ import br.senai.sp.lojaquiosque.model.TipoProduto;
 
 @Controller
 public class ClienteController {
+	SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
 
 	@RequestMapping("formCliente")
 	public String formGenero(Model model) {
@@ -118,13 +119,32 @@ public class ClienteController {
 		
 		
 		 
-		Date hora;
-		for(Cliente i :dao4.listar()) {
-			
-	       	hora =	i.getEatacadastro().getTime();
-			
-		}
 		
+		int manha = 0;
+		int trade = 0;
+		int niote = 0;
+	     //Date horaTrade = null;
+		//horaTrade = horaTrade.from(Instant.parse("12:00:00"));
+	
+		int hora = 0;
+		for(Cliente i :dao4.listar()) {
+	       	hora =	i.getEatacadastro().get(Calendar.HOUR_OF_DAY);
+	       	if(hora > 6 && hora < 12){
+				manha += 1;
+			}else if(hora > 12 && hora < 18){
+				trade += 1;
+			}else{
+				niote += 1;
+			}
+		}
+	       	
+	      
+		model.addAttribute("manha",manha );
+		model.addAttribute("trade",trade );
+		model.addAttribute("niote",niote );   
+	    	
+	      
+	       
 	    
 
 		return "tabelaestajsp";
