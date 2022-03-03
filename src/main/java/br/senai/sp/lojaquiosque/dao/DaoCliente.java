@@ -160,7 +160,7 @@ public class DaoCliente {
 				// "setar" a data do calendar pela data do Date
 				//validade.setTimeInMillis(dataBd.getTime());
 				// "setar" a validade no produto
-			//	p.setDataValidade(validade);
+			    //	p.setDataValidade(validade);
 				// extrair a posição da enumeração do resultset
 				int posEnumn = rs.getInt("tptelefone");
 				TelefoneOuCelular tele = TelefoneOuCelular.values()[posEnumn];
@@ -195,4 +195,159 @@ public class DaoCliente {
 			throw new RuntimeException(e);
 		}
 	}
+	public List<Cliente> listargeneroh() {
+		String sql = "SELECT sex FROM `tb_cliente` WHERE sex = 0";
+		List<Cliente> lista = new ArrayList<Cliente>();
+		PreparedStatement stmt;
+		try {
+			stmt = conexao.prepareStatement(sql);
+			ResultSet rs = stmt.executeQuery();
+			while (rs.next()) {
+				Cliente c = new Cliente();
+				
+				// cria um Calendar
+				//Calendar validade = Calendar.getInstance();
+				// extrair o Date do resultset
+				//Date dataBd = rs.getDate("data_validade");
+				// "setar" a data do calendar pela data do Date
+				//validade.setTimeInMillis(dataBd.getTime());
+				// "setar" a validade no produto
+			    //	p.setDataValidade(validade);
+				// extrair a posição da enumeração do resultset
+			
+				
+				
+				
+				// descobre a enumeração através da posição
+				
+				// "setar" o tipo no produto
+				
+				int posEnumG = rs.getInt("sex");
+				Genero gen = Genero.values()[posEnumG];
+				c.setSex(gen);
+				
+				// cria um Calendar
+				
+				// extrair o Date do resultset
+				
+				// "setar" a data do calendar pela data do Date
+			
+				// "setar" a validade no produto
+				
+				
+				
+				lista.add(c);
+				
+			}
+			rs.close();
+			stmt.close();
+			conexao.close();
+			return lista;
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+	}
+	public List<Cliente> listargef() {
+		String sql = "SELECT sex FROM `tb_cliente` WHERE sex = 1";
+		List<Cliente> lista = new ArrayList<Cliente>();
+		PreparedStatement stmt;
+		try {
+			stmt = conexao.prepareStatement(sql);
+			ResultSet rs = stmt.executeQuery();
+			while (rs.next()) {
+				Cliente c = new Cliente();
+				
+				// cria um Calendar
+				//Calendar validade = Calendar.getInstance();
+				// extrair o Date do resultset
+				//Date dataBd = rs.getDate("data_validade");
+				// "setar" a data do calendar pela data do Date
+				//validade.setTimeInMillis(dataBd.getTime());
+				// "setar" a validade no produto
+			//	p.setDataValidade(validade);
+				// extrair a posição da enumeração do resultset
+			
+				
+				
+				
+				// descobre a enumeração através da posição
+				
+				// "setar" o tipo no produto
+				
+				int posEnumG = rs.getInt("sex");
+				Genero gen = Genero.values()[posEnumG];
+				c.setSex(gen);
+				
+				// cria um Calendar
+				
+				// extrair o Date do resultset
+				
+				// "setar" a data do calendar pela data do Date
+			
+				// "setar" a validade no produto
+				
+				
+				
+				lista.add(c);
+			}
+			rs.close();
+			stmt.close();
+			conexao.close();
+			return lista;
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+	}
+	public List<Cliente> listaridade() {
+		String sql = "SELECT faixa_etaria FROM `tb_cliente`";
+		List<Cliente> lista = new ArrayList<Cliente>();
+		PreparedStatement stmt;
+		try {
+			stmt = conexao.prepareStatement(sql);
+			ResultSet rs = stmt.executeQuery();
+			while (rs.next()) {
+				Cliente c = new Cliente();
+				
+				// cria um Calendar
+				//Calendar validade = Calendar.getInstance();
+				// extrair o Date do resultset
+				//Date dataBd = rs.getDate("data_validade");
+				// "setar" a data do calendar pela data do Date
+				//validade.setTimeInMillis(dataBd.getTime());
+				// "setar" a validade no produto
+			    //	p.setDataValidade(validade);
+				// extrair a posição da enumeração do resultset
+			
+				
+				
+				
+				// descobre a enumeração através da posição
+				
+				// "setar" o tipo no produto
+				
+				c.setIdade(rs.getInt("faixa_etaria"));
+				
+				// cria um Calendar
+				
+				// extrair o Date do resultset
+				
+				// "setar" a data do calendar pela data do Date
+			
+				// "setar" a validade no produto
+				
+				
+				
+				lista.add(c);
+				
+			}
+			rs.close();
+			stmt.close();
+			conexao.close();
+			return lista;
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+	}
+	
+
 }

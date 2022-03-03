@@ -1,0 +1,42 @@
+
+body{
+    width: 399px;
+    margin: auto;
+    padding-top : 100px;
+    padding-right: 0px;
+    padding-left: 60px;
+    background-image: linear-gradient(to right,rgb(169, 179, 41),blue);
+}
+
+.h1{
+    background-image: linear-gradient(to right,rgb(169, 179, 37),blue);
+    color: antiquewhite;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
+    text-align: center;
+}
+.tbClientes{
+    color: rgb(0, 0, 0);
+    width: 2000px;
+}
+th{
+    background-color: transparent;
+    color: white;
+
+}
+td{
+    color: beige;
+    background-color: rgba(0, 0, 0, 0.082);
+}
+#thfxetaria{
+    text-align: left;
+    padding-left: 70px;
+}
+#thsemana{
+    text-align: left;
+    padding-left: 25px;
+}
+
+h1{
+    font-size: 25px;
+    color: rgb(0, 238, 255);
+}

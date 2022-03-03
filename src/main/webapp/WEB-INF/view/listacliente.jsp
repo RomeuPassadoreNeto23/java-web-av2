@@ -46,7 +46,10 @@
              <td><a  href="excluirCliente?idcliente=${c.id }" onclick="return confirm('Deseja excluir?')">Excluir</a></td>
          </tr>
          </c:forEach>   
-       
       </table>
+      <br>
+      <ul>
+      <li>a<a href="tabelaestajsp">Tabela de Estatísticas</a></li>
+      </ul>
 </body>
 </html>

@@ -78,14 +78,14 @@ label {
 <body>
 	<form action="salvarClinete" method="get">
 	<input type="hidden" name="id" value="${cliente.id }" />
-			<h1 class="h1">Login</h1>
+			<h1 class="h1">cadastro de  cliente</h1>
 		
 			<label for="input_nome" class="labNome">Nome:</label> <input type="text"
-				name="nome" id="input_nome" value="${cliente.nome }"> <br> <label
-				for="endereco" class="labEndereco">Cndereço:</label> <input
-				type="text" name="endereco" value="${cliente.endereco }"> <br>
+				name="nome" id="input_nome"  value="Digite seu Nome:  ${cliente.nome }"> <br> <label
+				for="endereco" class="labEndereco">Endereço:</label> <input
+				type="text" name="endereco" value="Digite seu Endereço:  ${cliente.endereco }"> <br>
 			<label for="contato" class="labContato">Telefon:</label>
-			<input type="tel"  name="contato" value="${cliente.contato }">
+			<input type="tel"  name="contato" value="Digite seu Telefone: ${cliente.contato }">
 			<br>
 			     <label  for="tptelefone">telefone ou celular: </label>
 				<select name="tptelefone" class="slt_produtos"> 
@@ -96,8 +96,8 @@ label {
 			
 				 <br> <label
 				for="email" class="labEmail">E-mail:</label> <input type="email"
-				name="email" value="${cliente.email }" class="InEmail"> <br> 
-				<label for="tprodutos" class="labProduto">Produto de interesse:</label>
+				name="email" placeholder="Digite seu Email" value="Digite seu Email: ${ cliente.email }" class="InEmail"> <br> 
+				<label for="tprodutos"  class="labProduto">Produto de interesse:</label>
 			    <select name="tprodutos" >
 					<c:forEach items="${tipos}" var="t">
 						 <option <c:if test="${cliente.tprodutos == t }">selected</c:if> value="${t }">${t.toString() }</option>
@@ -111,8 +111,8 @@ label {
 					</c:forEach>
 			     </select>
 			 <br> 
-			  <label for="idade" class="labProduto">faixa etaria:</label>
-			  <input type="number" name="idade" value="${cliente.idade }"> 
+			  <label for="idade" class="labProduto">Idade:</label>
+			  <input type="text"  name="idade" value="Digite sua Idade:  ${cliente.idade }"> 
 			  <br>
 
 			<button type="submit" value="salvar" class="btCadastrar">Cadastrar</button>

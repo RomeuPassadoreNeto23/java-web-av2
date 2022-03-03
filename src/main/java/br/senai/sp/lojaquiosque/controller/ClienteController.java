@@ -1,7 +1,10 @@
 package br.senai.sp.lojaquiosque.controller;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -78,6 +81,53 @@ public class ClienteController {
 		model.addAttribute("cliente", dao.buscar(idcliente));
 		
 		return "forward:formCliente";
+	}
+	@RequestMapping("tabelaestajsp")
+	public String tabelaestajsp(Model model) {
+		DaoCliente dao = new DaoCliente();
+		model.addAttribute("generoh", dao.listargeneroh().size());
+		DaoCliente dao2 = new DaoCliente();
+		model.addAttribute("mulher", dao2.listargef().size());
+		DaoCliente dao3 = new DaoCliente();
+	
+		int idadecli = 0;
+		int jovem = 0;
+		int adulto = 0;
+		int idoso = 0;
+		for(Cliente i : dao3.listaridade()) {
+			  idadecli = i.getIdade();
+			  if(idadecli < 20) {
+				  jovem += 1;
+				  System.out.println(jovem);
+			  }else if (idadecli > 20) {
+				  adulto += 1;
+				  System.out.println(adulto);
+				
+			}else if (idadecli > 50) {
+				idoso += 1;
+				System.out.println(idoso);
+				
+			}
+			  
+		}
+		model.addAttribute("jovem",jovem );
+		model.addAttribute("adulto",adulto );
+		model.addAttribute("idoso",idoso );
+		DaoCliente dao4 = new DaoCliente();
+		//@DateTimeFormat(pattern = "hh:mm:ss")
+		
+		
+		 
+		Date hora;
+		for(Cliente i :dao4.listar()) {
+			
+	       	hora =	i.getEatacadastro().getTime();
+			
+		}
+		
+	    
+
+		return "tabelaestajsp";
 	}
 
 }
