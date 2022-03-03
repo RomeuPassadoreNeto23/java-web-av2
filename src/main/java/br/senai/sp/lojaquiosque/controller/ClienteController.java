@@ -153,7 +153,7 @@ public class ClienteController {
 		
 		for(Cliente i : dao5.listardia()) {
 			 dia = i.getEatacadastro().get(Calendar.DAY_OF_WEEK);
-			 
+			 System.out.println(dia);
 			
 			 switch (dia) {
 			 
@@ -197,7 +197,7 @@ public class ClienteController {
 		model.addAttribute("Quinta",dia4 );
 		model.addAttribute("Sexta",dia5 );
 		model.addAttribute("Sabado",dia6 ); 
-		model.addAttribute("domingo",dia6 );   	
+		model.addAttribute("domingo",dia7 );   	
 	      
 	       
 	    
