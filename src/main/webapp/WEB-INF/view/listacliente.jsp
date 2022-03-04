@@ -49,7 +49,7 @@
       </table>
       <br>
       <ul>
-      <li>a<a href="tabelaestajsp">Tabela de Estatísticas</a></li>
+      <li style="list-style: none;"><a style="color: white; text-decoration: none;" href="tabelaestajsp">Tabela de Estatísticas</a></li>
       </ul>
 </body>
 </html>
