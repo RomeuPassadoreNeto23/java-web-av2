@@ -23,11 +23,11 @@
           <th class="PdInteresse">Produto de interesse</th>
           <th class="Genero">Genero</th>
           <th class="FaixaEtaria">idade</th>
-          <th> Data do Cadastro </th>
-          <th> Hora do cadastro</th>
-          <th> alterar cliente</th>
-          <th> excluir </th>
-        </tr>
+          <th  class="FaixaEtaria"> Data do Cadastro </th>
+          <th class="FaixaEtaria"> Hora do cadastro</th>
+          <th class="FaixaEtaria"> alterar cliente</th>
+          <th class="FaixaEtaria"> excluir </th>
+        </tr class="principal">
        
         <c:forEach  items="${cliente}" var="c">
          <tr >
@@ -42,8 +42,8 @@
             <td>${c.idade}</td>
             <td><fmt:formatDate pattern="dd-MM-yyyy" value="${c.eatacadastro.time }" /></td>
              <td><fmt:formatDate pattern=" HH:mm:ss" value="${c.eatacadastro.time }" /></td>
-             <td><a  href="alterarCliente?idcliente=${c.id }">Alterar</a></td>
-             <td><a  href="excluirCliente?idcliente=${c.id }" onclick="return confirm('Deseja excluir?')">Excluir</a></td>
+             <td><a  href="alterarCliente?idcliente=${c.id }" style="color: white; text-decoration: none;">Alterar</a></td>
+             <td  class="principal"><a href="excluirCliente?idcliente=${c.id }" style="color: white; text-decoration: none;" onclick="return confirm('Deseja excluir?')">Excluir</a></td>
          </tr>
          </c:forEach>   
       </table>

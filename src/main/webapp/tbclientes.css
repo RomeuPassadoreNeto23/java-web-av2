@@ -17,9 +17,10 @@ body{
     color: rgb(0, 0, 0);
     width: 2000px;
 }
-th{
+.Corbranco{
     background-color: azure;
 }
+
 .id{
 
 }
@@ -47,7 +48,10 @@ th{
 .FaixaEtaria{
     
 }
-td{
+ 
+
+td {
     color: beige;
     background-color: rgba(0, 0, 0, 0.082);
 }
+
