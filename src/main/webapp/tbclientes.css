@@ -22,30 +22,38 @@ body{
 }
 
 .id{
-
+background-color: blue;
+color: blue;
 }
 .Nome{
+	background-color: blue;
     
 }
 .Sobrenome{
+	background-color: blue;
     
 }
 .Endereco{
+	background-color: blue;
     
 }
 .Contato{
+	background-color: blue;
     
 }
 .Email{
+	background-color: blue;
     width: 200px;  
 }
 .PdInteresse{
+	background-color: blue;
     
 }
 .Genero{
     width: 90px;
 }
 .FaixaEtaria{
+	background-color: blue;
     
 }
  

@@ -7,7 +7,8 @@
 <head>
 <meta charset="ISO-8859-1">
  <link rel="stylesheet" href="tbEstatisticas.css">
-<title>Insert title here</title>
+ <link rel="icon" href="icom1.png" type="image/x-icon">
+<title>Estatísticas de clientes</title>
 </head>
 <body>
   <div class="divPrincipal">

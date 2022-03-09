@@ -7,8 +7,9 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<link rel="icon" href="icom1.png" type="image/x-icon">
 <link rel="stylesheet" href="tbclientes.css">
-<title>Insert title here</title>
+<title>Tabela de clientes</title>
 </head>
 <body>
  <h1 class="h1">Tabela de clientes</h1>
@@ -31,7 +32,7 @@
        
         <c:forEach  items="${cliente}" var="c">
          <tr >
-         <td>${c.id }</td>
+            <td>${c.id }</td>
             <td>${c.nome }</td>
             <td>${c.endereco }</td>
             <td>${c.contato }</td>
