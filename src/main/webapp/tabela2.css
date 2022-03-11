@@ -1,4 +1,4 @@
-
+@charset "ISO-8859-1";
 body{
     width: 399px;
     margin: auto;
@@ -51,7 +51,7 @@ color: black;
 }
 .Genero{
 	border-bottom-color:white;
-    width: 90px;
+    width: 200px;
 }
 .FaixaEtaria{
 	background-color: white;

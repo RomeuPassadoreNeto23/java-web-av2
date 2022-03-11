@@ -8,7 +8,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <link rel="icon" href="icom1.png" type="image/x-icon">
-<link rel="stylesheet" href="tbclientes.css">
+<link rel="stylesheet" href="tabela2.css">
 <title>Tabela de clientes</title>
 </head>
 <body>
@@ -22,7 +22,7 @@
           <th class="Contato">tipo celualar ou  telefone</th>
           <th class="Email">E-mail</th>
           <th class="PdInteresse">Produto de interesse</th>
-          <th class="Genero">Genero</th>
+          <th class="Genero" style="background-color: white;">Genero</th>
           <th class="FaixaEtaria">idade</th>
           <th  class="FaixaEtaria"> Data do Cadastro </th>
           <th class="FaixaEtaria"> Hora do cadastro</th>
